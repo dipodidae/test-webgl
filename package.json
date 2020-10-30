@@ -39,7 +39,10 @@
    "eslintConfig": {
       "root": true,
       "env": {
-         "node": true
+         "node": true,
+         "browser": true,
+         "es6": true,
+         "jest": true
       },
       "extends": [
          "eslint:recommended",
@@ -48,8 +51,17 @@
          "prettier/vue",
          "plugin:prettier/recommended"
       ],
+      "settings": {
+         "import/resolver": {
+             "alias": {
+                 "extensions": [".js", ".vue"],
+                 "map": [["@", "./src"]]
+             }
+         }
+     },
       "parserOptions": {
-         "parser": "babel-eslint"
+         "parser": "babel-eslint",
+         "sourceType": "module"
       },
       "rules": {
          "class-methods-use-this": "off",
